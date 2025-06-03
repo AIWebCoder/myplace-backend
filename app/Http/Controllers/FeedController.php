@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Providers\MembersHelperServiceProvider;
 use App\Providers\PostsHelperServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Cookie;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use JavaScript;
 use View;
 

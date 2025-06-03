@@ -48,8 +48,8 @@ class Subscription extends Model
     /**
      * Casts the dates to carbon objects.
      */
-//    Deprecated in L10
-//    protected $dates = ['expires_at', 'updated_at', 'deleted_at'];
+    // Deprecated in L10
+    // protected $dates = ['expires_at', 'updated_at', 'deleted_at'];
 
     /*
      * Relationships

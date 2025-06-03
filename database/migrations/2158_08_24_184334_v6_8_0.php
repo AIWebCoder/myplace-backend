@@ -23,24 +23,24 @@ class V680 extends Migration
                 'display_name' => 'Transcoding driver',
                 'value' => 'none',
                 'details' => '{
-"default" : "pusher",
-"options" : {
-"none": "None",
-"ffmpeg": "FFmpeg",
-"coconut": "Coconut"
-}
-}',
+                        "default" : "pusher",
+                        "options" : {
+                        "none": "None",
+                        "ffmpeg": "FFmpeg",
+                        "coconut": "Coconut"
+                    }
+                }',
                 'type' => 'select_dropdown',
                 'order' => 3,
                 'group' => 'Media',
             )
         );
 
-        if(getSetting('media.enable_ffmpeg')){
+        if (getSetting('media.enable_ffmpeg')) {
             DB::table('settings')
                 ->where('key', 'media.transcoding_driver')
                 ->update([
-                    'value'=>'ffmpeg',
+                    'value' => 'ffmpeg',
                 ]);
         }
 
@@ -133,38 +133,38 @@ class V680 extends Migration
             ->where('key', 'media.apply_watermark')
             ->update([
                 'details' => '{
-"on" : "On",
-"off" : "Off",
-"checked" : true,
-"description": "For images, GD library is required. For videos, either ffmpeg or coconut transcoders."
-}',
+                    "on" : "On",
+                    "off" : "Off",
+                    "checked" : true,
+                    "description": "For images, GD library is required. For videos, either ffmpeg or coconut transcoders."
+                }',
             ]);
 
         DB::table('settings')
             ->where('key', 'media.use_url_watermark')
             ->update([
                 'details' => '{
-"on" : "On",
-"off" : "Off",
-"checked" : false,
-"description": "* Not supported for coconut transcoder."
-}',
+                    "on" : "On",
+                    "off" : "Off",
+                    "checked" : false,
+                    "description": "* Not supported for coconut transcoder."
+                }',
             ]);
 
         DB::table('settings')->insert(
             array(
-                array (
+                array(
                     'key' => 'media.coconut_audio_encoder',
                     'display_name' => 'Coconut Audio encoder',
                     'value' => 'aac',
                     'details' => '{
-"default" : "aac",
-"options" : {
-"aac": "AAC Encoder",
-"mp3": "MP3 Encoder"
-},
-"description": "AAC is recommended for best compatibility."
-}',
+                        "default" : "aac",
+                        "options" : {
+                            "aac": "AAC Encoder",
+                            "mp3": "MP3 Encoder"
+                        },
+                        "description": "AAC is recommended for best compatibility."
+                    }',
                     'type' => 'select_dropdown',
                     'order' => 1250,
                     'group' => 'Media'
@@ -173,18 +173,18 @@ class V680 extends Migration
         );
 
         DB::table('settings')->insert(
-            array (
+            array(
                 'key' => 'media.coconut_video_conversion_quality_preset',
                 'display_name' => 'Coconut video quality preset',
                 'details' => '{
-"description" : "Going for better quality will reduce the processing time but increase the file size, next to it\'s original size.",
-"default" : "coconut_balanced",
-"options" : {
-"coconut_size": "Size optimized",
-"coconut_balanced": "Balanced profile",
-"coconut_quality": "Quality optimized"
-}
-}',
+                    "description" : "Going for better quality will reduce the processing time but increase the file size, next to it\'s original size.",
+                    "default" : "coconut_balanced",
+                    "options" : {
+                        "coconut_size": "Size optimized",
+                        "coconut_balanced": "Balanced profile",
+                        "coconut_quality": "Quality optimized"
+                    }
+                }',
                 'value' => 'coconut_balanced',
                 'type' => 'radio_btn',
                 'order' => 1260,
@@ -192,21 +192,22 @@ class V680 extends Migration
             )
         );
 
-        DB::table('settings')->insert(array (
-            array (
+        DB::table('settings')->insert(array(
+            array(
                 'key' => 'media.coconut_enforce_mp4_conversion',
                 'display_name' => 'Enforce mp4 videos re-conversion',
                 'value' => '1',
                 'details' => '{
-"on" : "On",
-"off" : "Off",
-"checked" : true,
-"description": "Allows you skip mp4 re-conversion to platform standards, reducing costs. Recommended value: On."
-}',
+                    "on" : "On",
+                    "off" : "Off",
+                    "checked" : true,
+                    "description": "Allows you skip mp4 re-conversion to platform standards, reducing costs. Recommended value: On."
+                }',
                 'type' => 'checkbox',
                 'order' => 1270,
                 'group' => 'Media',
-            )));
+            )
+        ));
 
 
         // Media settings re-ordering
@@ -240,7 +241,6 @@ class V680 extends Migration
             $sqlStatement = "UPDATE `settings` SET `order` = '{$orderIncremented}' WHERE `key` = '{$key}';";
             DB::statement($sqlStatement);
         }
-
     }
 
     /**
@@ -253,7 +253,7 @@ class V680 extends Migration
 
         DB::table('settings')->insert(
             array(
-                array (
+                array(
                     'key' => 'media.enable_ffmpeg',
                     'display_name' => 'Enable FFmpeg',
                     'value' => 0,
@@ -347,7 +347,5 @@ class V680 extends Migration
                 "media.coconut_enforce_mp4_conversion"
             ])
             ->delete();
-
-
     }
 }

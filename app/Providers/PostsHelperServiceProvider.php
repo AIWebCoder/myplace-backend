@@ -73,7 +73,7 @@ class PostsHelperServiceProvider extends ServiceProvider
                 ->where(function ($query) {
                     $query->where('posts.price', '=', floatval(0))
                         ->orWhere(function ($query) {
-                            $query->where('transactions.id', '<>', null)
+                            $query->where('transactions.id', '<>', null) 
                                 ->where('transactions.type', '=', Transaction::POST_UNLOCK)
                                 ->where('transactions.status', '=', Transaction::APPROVED_STATUS)
                                 ->where('transactions.sender_user_id', '=', Auth::user()->id);

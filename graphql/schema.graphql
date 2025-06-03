@@ -1,0 +1,33 @@
+type Query {
+  posts: [Post!]! @field(resolver: "App\\GraphQL\\Queries\\PostList")
+}
+
+type Post {
+  id: ID!
+  title: String
+  body: String
+  comments: [Comment!]!
+  reactions: [Reaction!]!
+  bookmarks: [Bookmark!]!
+  attachments: [Attachment!]!
+}
+
+type Comment {
+  id: ID!
+  content: String
+}
+
+type Reaction {
+  id: ID!
+  type: String
+}
+
+type Bookmark {
+  id: ID!
+  user_id: ID
+}
+
+type Attachment {
+  id: ID!
+  url: String
+}

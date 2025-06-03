@@ -8,6 +8,7 @@ use Aws\Exception\AwsException;
 use FFMpeg\Filters\Video\CustomFilter;
 use FFMpeg\Format\Video\X264;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use Intervention\Image\Facades\Image;
@@ -525,6 +526,7 @@ class AttachmentServiceProvider extends ServiceProvider
 
         // Creating the db entry
         $storageDriver = config('filesystems.defaultFilesystemDriver');
+
         $attachment = Attachment::create([
             'id' => $fileId,
             'filename' => $filePath,

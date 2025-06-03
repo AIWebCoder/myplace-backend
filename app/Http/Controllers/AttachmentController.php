@@ -6,7 +6,6 @@ use App\Http\Requests\UploadAttachamentRequest;
 use App\Model\Attachment;
 use App\Providers\AttachmentServiceProvider;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log as FacadesLog;
 use Illuminate\Support\Facades\Storage;
 use Pion\Laravel\ChunkUpload\Exceptions\UploadMissingFileException;
 use Pion\Laravel\ChunkUpload\Handler\HandlerFactory;
@@ -78,7 +77,6 @@ class AttachmentController extends Controller
             } elseif ($type == 'payment-request'){
                 $directory = 'payment-request/'.$directory;
             }
-
             $attachment = AttachmentServiceProvider::createAttachment($file, $directory, $generateThumbnail, true);
 
             if($chunkedFile){

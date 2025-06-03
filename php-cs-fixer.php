@@ -8,7 +8,7 @@ $rules = [
     'blank_line_after_namespace' => true,
     'blank_line_after_opening_tag' => true,
     //TODO: Maybe we'll want this in the future, but looks weird imo atm
-//    'cast_spaces' => true,
+    // 'cast_spaces' => true,
     'concat_space' => [
         'spacing' => 'none',
     ],
@@ -67,7 +67,7 @@ $rules = [
     'no_whitespace_in_blank_line' => true,
     'normalize_index_brace' => true,
     //TODO: Maybe we'll want this in the future, but looks weird imo atm
-//    'not_operator_with_successor_space' => true,
+    // 'not_operator_with_successor_space' => true,
     'object_operator_without_whitespace' => true,
     'phpdoc_indent' => true,
     'phpdoc_no_access' => true,
@@ -91,7 +91,7 @@ $rules = [
         'comment_types' => ['hash'],
     ],
     //TODO: Maybe we'll want this in the future, but looks weird imo atm
-//    'single_quote' => true,
+    // 'single_quote' => true,
     'space_after_semicolon' => true,
     'standardize_not_equals' => true,
     'switch_case_semicolon_to_colon' => true,
@@ -116,9 +116,9 @@ $rules = [
     ],
     // TODO: Review this? So far we don't have such rule in JS code, so leaving it off though it might generate cleaner code
     // TODO: Also seems not to be fully consistent. EG: ListsHelperServiceProvider post-fix (messes up readability for functions with early exists)
-//    'blank_line_before_statement' => [
-//        'statements' => ['return'],
-//    ],
+    // 'blank_line_before_statement' => [
+    // 'statements' => ['return'],
+    // ],
     'class_attributes_separation' => [
         'elements' => [
             'const' => 'none',       // No blank line before/after const declarations. TODO: Run one time on none then remove it entirely?
@@ -133,9 +133,9 @@ $rules = [
         'single_line' => true,
     ],
     //TODO: Maybe we'll want this in the future, but looks weird imo atm
-//    'ordered_imports' => [
-//        'sort_algorithm' => 'alpha',
-//    ],
+    //    'ordered_imports' => [
+    //        'sort_algorithm' => 'alpha',
+    //    ],
 
     // php-cs-fixer 3: Removed rootless options (*)
     'no_unneeded_control_parentheses' => [
